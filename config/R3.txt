@@ -1,0 +1,12 @@
+sysname R3
+interface GigabitEthernet0/0/0.30
+ dot1q termination vid 30
+ ip address 192.168.30.1 255.255.255.0
+interface GigabitEthernet0/0/1
+ ip address 10.0.13.2 255.255.255.0
+
+ospf 1 router-id 3.3.3.3
+ area 2
+  network 10.0.13.2 0.0.0.0
+  network 192.168.30.1 0.0.0.0
+silent-interface GigabitEthernet0/0/0.30

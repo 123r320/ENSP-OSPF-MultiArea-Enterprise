@@ -1,0 +1,21 @@
+sysname R1
+interface GigabitEthernet0/0/0.10
+ dot1q termination vid 10
+ ip address 192.168.10.1 255.255.255.0
+interface GigabitEthernet0/0/1
+ ip address 10.0.12.1 255.255.255.0
+interface GigabitEthernet0/0/2
+ ip address 10.0.13.1 255.255.255.0
+
+ospf 1 router-id 1.1.1.1
+ area 0
+  network 10.0.12.1 0.0.0.0
+  network 10.0.13.1 0.0.0.0
+  network 192.168.10.1 0.0.0.0
+ area 1
+  network 10.0.12.1 0.0.0.0
+  abr-summary 192.168.20.0 255.255.255.0
+ area 2
+  network 10.0.13.1 0.0.0.0
+  abr-summary 192.168.30.0 255.255.255.0
+silent-interface GigabitEthernet0/0/0.10

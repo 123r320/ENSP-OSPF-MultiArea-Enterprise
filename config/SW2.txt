@@ -1,0 +1,8 @@
+sysname SW2
+vlan batch 20
+interface GigabitEthernet0/0/1
+ port link-type trunk
+ port trunk allow-pass vlan 20
+interface GigabitEthernet0/0/2
+ port link-type access
+ port default vlan 20

@@ -1,0 +1,12 @@
+sysname R2
+interface GigabitEthernet0/0/0.20
+ dot1q termination vid 20
+ ip address 192.168.20.1 255.255.255.0
+interface GigabitEthernet0/0/1
+ ip address 10.0.12.2 255.255.255.0
+
+ospf 1 router-id 2.2.2.2
+ area 1
+  network 10.0.12.2 0.0.0.0
+  network 192.168.20.1 0.0.0.0
+silent-interface GigabitEthernet0/0/0.20

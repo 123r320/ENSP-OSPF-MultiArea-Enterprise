@@ -1,0 +1,8 @@
+sysname SW3
+vlan batch 30
+interface GigabitEthernet0/0/1
+ port link-type trunk
+ port trunk allow-pass vlan 30
+interface GigabitEthernet0/0/2
+ port link-type access
+ port default vlan 30
